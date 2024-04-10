@@ -1,5 +1,5 @@
 # redressergit
-Capstone Project for INF453. Supervisor is <b>Maher Elshakankiri.</b>
+Capstone Project for INF453. Supervisor is <b>Maher Elshakankiri.</b>  Team Members are <b>Jason Ngo, Maxine Ramos, Jenny Shen, Joyce Xuan</b>
 
 Our used clothing marketplace project resonates deeply with the core objectives and learning outcomes of the Bachelor of Information program. In striving to create a dedicated online platform,  we directly engage with the societal impact of information creation and circulation, aligning with the program's emphasis on understanding the social, political, economic, and ethical dimensions of information practices. 
 
