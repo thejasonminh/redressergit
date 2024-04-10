@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- use tailwind css as a style template of sorts -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+
+        <!-- <link rel="stylesheet" href="{% static 'core/style.css' %}"> -->
+
+        <!-- appends " | Redressr " to every title -->
+        <title>{% block title %}{% endblock %} | Redressr</title>
+    </head>
+
+    <body>
+        <!-- top nav, change elements in the "class" statement to adjust appearance -->
+        <nav class="py-6 px-6 flex justify-between items-center" style="background-color: #FFF1EA;">
+            <!-- logo -->
+            <a href="/"><img src="{% static 'core/redresserlogo.png' %}" alt="Logo"></a>
+
+            <!-- search bar -->
+            <form method="get" action="{% url 'item:items' %}">
+                <input name="query" class="py-4 px-6 border" type="text" value="{{ query }}" placeholder="Search item..." size="50" style="height: 45px; font-size: 12pt; font-family: 'Ubuntu'; border-color: black; border-style: solid;">
+                <input type="image" src="{% static 'core/search.png' %}" alt="Search" style="position: absolute; top: 30px; padding-left: 10px;">
+                <!--<button class="py-3 px-8 text-lg bg-teal-500 font-semibold text-white rounded-xl">Search</button> -->
+            </form>
+
+            <!-- interactables in the top nav-->
+            <div class="space-x-6">
+                {% if request.user.is_authenticated %}
+                <div class="columns">
+                    <ul style="display: inline-block;">
+                        <li style="display: inline-block; margin-right: 20px;"><img src="{% static 'core/favourites.png' %}" style="width: 35px; height: 35px;"></li>
+                        <li style="display: inline-block; margin-right: 20px;"><img src="{% static 'core/shoppingcart.png' %}" style="width: 35px; height: 35px;"></li>
+                        <li style="display: inline-block; margin-right: 20px;"><a href="{% url 'dashboard:index' %}"><img src="{% static 'core/profileicon.png' %}" style="width: 35px; height: 35px;"></a></li>
+                        <li style="display: inline-block; padding-left: 60px;"><a href="{% url 'item:new' %}" class="px-6 py-3 text-lg border bg-white text-black button" style="position: relative; bottom: 10px; border-color: black; border-style: solid; font-family: 'Ubuntu';">Sell Now</a></li>
+                    </ul> 
+                </div>
+                {% else %}
+                    <!-- change elements within to adjust appearance -->
+                    <a href="{% url 'core:signup' %}" class="px-6 py-3 text-lg border bg-white text-black button" style="border-color: black; border-style: solid; font-family: 'Ubuntu';">Sign Up</a>
+                    <a href="{% url 'core:login' %}" class="px-6 py-3 text-lg border bg-white text-black button" style="border-color: black; border-style: solid; font-family: 'Ubuntu';">Log In</a>
+                {% endif %}
+            </div>
+        </nav>
+
+        <!-- everything inbetween top nav and footer -->
+        <div class="px-6 py-6">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <!-- footer, change elements in the "class" statement to adjust apperance  -->
+        <footer class="py-6 px-6 flex justify-between" style="background-color: #063C2F;">
+            <div class="w-1/3">
+                <!-- Hover list items -->
+                <ul class="space-y-2">
+                    <li><a href="{% url 'core:contact' %}" style="font-family: 'Ubuntu'; color: #EEB292; font-size: 14pt;">Contact Us</a></li>
+                    <li><a href="#" style="font-family: 'Ubuntu'; color: #EEB292; font-size: 14pt;">inquiries@redresser.com</a></li>
+                    <li><a href="#" style="font-family: 'Ubuntu'; color: #EEB292; font-size: 14pt;">1-811-012-3456</a></li>
+                </ul>
+            </div>
+
+            <!-- Quick nav footer -->
+            <div class="w-1/3">
+                <!-- Hover list items -->
+                <ul class="space-y-2">
+                    <li><a href="{% url 'dashboard:index' %}" style="font-family: 'Ubuntu'; color: #EEB292; font-size: 14pt;">My Account</a></li>
+                    <li><a href="{% url 'core:login' %}" style="font-family: 'Ubuntu'; color: #EEB292; font-size: 14pt;">Sign In</a></li>
+                    <li><a href="{% url 'core:signup' %}" style="font-family: 'Ubuntu'; color: #EEB292; font-size: 14pt;">Register</a></li>
+                    <li><a href="#" style="font-family: 'Ubuntu'; color: #EEB292; font-size: 14pt;">Order Status</a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>

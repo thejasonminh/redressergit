@@ -1,0 +1,48 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Items{% endblock %}
+
+{% block content %} 
+    <h2 style="font-family: 'Ubuntu'; font-size: 32pt;">"{{ query }}" results</h2>
+
+<!-- sidebar -->
+    <div class="py-6 pb-6 grid grid-cols-6">
+        <div class="col-span-1" style="background-color: #FFF1EA;">
+            <p class="px-6 py-6"style="font-family: 'Ubuntu'; font-size: 16pt;">Categories</p>
+
+            <ul>
+                {% for category in categories %}
+                    <li class="py-2 px-6 rounded-xl{% if category.id == category_id %} bg-gray-200{% endif %}" style="font-family: 'Ubuntu'; font-size: 12pt;">
+                        <a href="{% url 'item:items' %}?query={{ query }}&category={{ category.id }}">{{ category.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <hr class="my-6">
+
+            <p class="px-6" style="font-family: 'Ubuntu'; font-size: 12pt;">Clear Filters</p>
+            <ul>
+                <li><a href="{% url 'item:items' %}" class="mt-2 py-3 px-6 inline-block text-white" style="position: relative; left: 15px; background-color: #063C2F; font-family: 'Ubuntu'; font-size: 12pt;">Clear</a></li>
+            </ul>
+        </div>
+
+        <div class="col-span-3" style="grid-column-start: 3;">
+            <div class="grid grid-cols-2 gap-6">
+                {% for item in items %}  <!-- for all item in item object -->
+                    <div>
+                        <a href="{% url 'item:detail' item.id %}">
+                            <div>
+                                <img src="{{ item.image.url }}" style="max-width:100%; height:400px; object-fit: contain;"> <!-- item pic -->
+                            </div>
+    
+                            <div class="py-4">
+                                <h2 style="font-family: 'Ubuntu'; font-size: 16pt;">{{ item.name }}</h2> <!-- item name -->
+                                <p style="font-family: 'Ubuntu'; font-size: 12pt;">Price: {{ item.price }}</p> <!-- item price -->
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+<!-- uses the base.html as a model -->
+{% extends 'core/base.html' %}
+{% load static %}
+
+<!-- page title is welcome -->
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+    <!-- banner and title -->
+    <h1 class="text-center py-6" style="font-family: 'Ubuntu'; font-size: 32pt;">Welcome to reDresser!</h1>
+    <img src="{% static 'core/banner.png' %}" alt="Banner" class="py-6"style="display: block; margin-right: auto; margin-left: auto;">
+
+    <!-- action buttons -->
+    <div class="py-10 space-x-40 text-center">
+        <a href="{% url 'item:items' %}" class="px-10 py-3 border button" style="border-color: black; border-style: solid; border-width: medium; font-family: 'Ubuntu'; font-size: x-large; font-weight: 500;">Shop Now</a>
+        <a href="{% url 'item:new' %}" class="px-10 py-3 border button" style="color: #EEB292; border-color: #EEB292; border-style: solid; border-width: medium; font-family: 'Ubuntu'; font-size: x-large; font-weight: 500;">Sell Now</a>
+    </div>
+    <!-- gray background where 3 columns for item listings -->
+    <div class="mt-6 px-6 py-12">
+        <h2 class="mb-12" style="font-family: 'Ubuntu'; font-size: 20pt;">Newest Items</h2>
+
+        <div class="grid grid-cols-3 gap-1">
+            {% for item in items|slice:":6" %}  <!-- for 6 most recent items in item object -->
+                <div>
+                    <a href="{% url 'item:detail' item.id %}">
+                        <div>
+                            <img src="{{ item.image.url }}" style="max-width:100%; height:400px;"> <!-- item pic -->
+                        </div>
+
+                        <div class="py-4">
+                            <h2 style="font-family: 'Ubuntu'; font-size: 16pt;">{{ item.name }}</h2> <!-- item name -->
+                            <p style="font-family: 'Ubuntu'; font-size: 12pt;">Price: {{ item.price }}</p> <!-- item price -->
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+{% endblock %}
