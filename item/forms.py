@@ -2,7 +2,10 @@ from django import forms
 
 from .models import Item
 
-INPUT_CLASSES = 'w-full py-4 px-6 rounded-xl border'
+# Author: Jason Ngo, Maxine Ramos, Jenny Shen, Joyce Xuan
+# Class: INF 453 - Capstone Project
+# Supervisor: Maher Elshakankiri
+# Purpose: Item creation and edit forms
 
 class NewItemForm(forms.ModelForm):
     class Meta:
@@ -11,30 +14,25 @@ class NewItemForm(forms.ModelForm):
 
         widgets = {
             'category': forms.Select(attrs={
-                'class': INPUT_CLASSES,
                 'class': 'w-full py-4 px-6',
                 'style': 'color: black; background-color: #EEB29280; border-color: black; border-style: solid; border-width: medium;'
             }),
             'name': forms.TextInput(attrs={
-                'class': INPUT_CLASSES,
                 'placeholder': 'Item Name',
                 'class': 'w-full py-4 px-6',
                 'style': 'color: black; background-color: #EEB29280; border-color: black; border-style: solid; border-width: medium;'
             }),
             'description': forms.Textarea(attrs={
-                'class': INPUT_CLASSES,
                 'placeholder': 'Item Description',
                 'class': 'w-full py-4 px-6',
                 'style': 'color: black; background-color: #EEB29280; border-color: black; border-style: solid; border-width: medium;'
             }),
             'price': forms.TextInput(attrs={
-                'class': INPUT_CLASSES,
                 'placeholder': 'Item Price',
                 'class': 'w-full py-4 px-6',
                 'style': 'color: black; background-color: #EEB29280; border-color: black; border-style: solid; border-width: medium;'
             }),
             'image': forms.FileInput(attrs={
-                'class': INPUT_CLASSES,
                 'placeholder': 'Select Image',
                 'class': 'w-full py-4 px-6',
                 'style': 'color: black; background-color: #EEB29280; border-color: black; border-style: solid; border-width: medium;'
@@ -48,15 +46,23 @@ class EditItemForm(forms.ModelForm):
 
         widgets = {
             'name': forms.TextInput(attrs={
-                'class': INPUT_CLASSES
+                'placeholder': 'Item Name',
+                'class': 'w-full py-4 px-6',
+                'style': 'color: black; background-color: #EEB29280; border-color: black; border-style: solid; border-width: medium;'
             }),
             'description': forms.Textarea(attrs={
-                'class': INPUT_CLASSES
+                'placeholder': 'Item Description',
+                'class': 'w-full py-4 px-6',
+                'style': 'color: black; background-color: #EEB29280; border-color: black; border-style: solid; border-width: medium;'
             }),
             'price': forms.TextInput(attrs={
-                'class': INPUT_CLASSES
+                'placeholder': 'Item Price',
+                'class': 'w-full py-4 px-6',
+                'style': 'color: black; background-color: #EEB29280; border-color: black; border-style: solid; border-width: medium;'
             }),
             'image': forms.FileInput(attrs={
-                'class': INPUT_CLASSES
+                'placeholder': 'Select Image',
+                'class': 'w-full py-4 px-6',
+                'style': 'color: black; background-color: #EEB29280; border-color: black; border-style: solid; border-width: medium;'
             })
         }

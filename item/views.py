@@ -5,6 +5,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import NewItemForm, EditItemForm
 from .models import Category, Item
 
+# Author: Jason Ngo, Maxine Ramos, Jenny Shen, Joyce Xuan
+# Class: INF 453 - Capstone Project
+# Supervisor: Maher Elshakankiri
+# Purpose: interactivity of item searching and details
+
 def items(request):
     query = request.GET.get('query', '')
     category_id = request.GET.get('category', 0)

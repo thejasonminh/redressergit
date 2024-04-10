@@ -1,6 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+# Author: Jason Ngo, Maxine Ramos, Jenny Shen, Joyce Xuan
+# Class: INF 453 - Capstone Project
+# Supervisor: Maher Elshakankiri
+# Purpose: Item categories
+
 # Create your models here for items
 ## Category tag
 class Category(models.Model):

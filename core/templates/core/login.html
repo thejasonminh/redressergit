@@ -1,11 +1,19 @@
 {% extends 'core/base.html' %}
+<!--
+Author: Jason Ngo, Maxine Ramos, Jenny Shen, Joyce Xuan
+Class: INF 453 - Capstone Project
+Supervisor: Maher Elshakankiri
+Purpose: Login
+-->
 
 {% block title %}Log In{% endblock %}
 
 {% block content %}
+<!-- Top Part of Form -->
 <div class="w-1/2 my-6 mx-auto p-6">
     <h1 class="mb-6 text-center" style="font-family: 'Ubuntu'; font-size: 20pt;">Log In</h1>
 
+    <!-- Form elements -->
     <form method="post" action=".">
         {% csrf_token %}
 
@@ -19,6 +27,7 @@
             {{ form.password }}
         </div>
 
+        <!-- Error checks -->
         {% if form.errors or form.non_field_errors %}
             <div class="mb-3 p-6 bg-red-100 rounded-xl">
                 {% for field in form %}
@@ -29,6 +38,7 @@
             </div>
         {% endif %}
 
+        <!-- Submit Button -->
         <div class="py-6">
             <button class="inline-block mt-6 px-6 py-3 font-semibold text-black" style="margin:auto; display: block; background-color: #EEB292; font-size: 20px; border-color: black; border-style: solid; border-width: medium;">Submit</button>
         </div>

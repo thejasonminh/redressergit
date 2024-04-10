@@ -1,4 +1,7 @@
-# urls specifically for the item itself
+# Author: Jason Ngo, Maxine Ramos, Jenny Shen, Joyce Xuan
+# Class: INF 453 - Capstone Project
+# Supervisor: Maher Elshakankiri
+# Purpose: urls specifically for the items themselves
 
 from django.urls import path
 from . import views

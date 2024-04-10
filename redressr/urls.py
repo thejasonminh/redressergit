@@ -19,6 +19,11 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+# Author: Jason Ngo, Maxine Ramos, Jenny Shen, Joyce Xuan
+# Class: INF 453 - Capstone Project
+# Supervisor: Maher Elshakankiri
+# Purpose: url redirects for the entire project
+
 
 urlpatterns = [
     path('', include('core.urls')), #adding a url for the index, which is home page

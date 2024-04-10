@@ -4,6 +4,11 @@ from item.models import Category, Item  #import the items and their categories
 
 from .forms import SignupForm
 
+# Author: Jason Ngo, Maxine Ramos, Jenny Shen, Joyce Xuan
+# Class: INF 453 - Capstone Project
+# Supervisor: Maher Elshakankiri
+# Purpose: views (interactivity) of websites
+
 # Create your views here.
 def index(request):
     items = Item.objects.filter(is_sold=False)[0:6] #show 6 items that arent sold

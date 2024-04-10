@@ -4,6 +4,11 @@ from django.urls import path
 from . import views
 from .forms import LoginForm
 
+# Author: Jason Ngo, Maxine Ramos, Jenny Shen, Joyce Xuan
+# Class: INF 453 - Capstone Project
+# Supervisor: Maher Elshakankiri
+# Purpose: URLS for redirecting users
+
 app_name = 'core'
 
 urlpatterns = [

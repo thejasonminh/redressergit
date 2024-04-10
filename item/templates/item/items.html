@@ -1,11 +1,17 @@
 {% extends 'core/base.html' %}
+<!--
+Author: Jason Ngo, Maxine Ramos, Jenny Shen, Joyce Xuan
+Class: INF 453 - Capstone Project
+Supervisor: Maher Elshakankiri
+Purpose: Item search/browse page
+-->
 
 {% block title %}Items{% endblock %}
 
 {% block content %} 
     <h2 style="font-family: 'Ubuntu'; font-size: 32pt;">"{{ query }}" results</h2>
 
-<!-- sidebar -->
+    <!-- categiry sidebar -->
     <div class="py-6 pb-6 grid grid-cols-6">
         <div class="col-span-1" style="background-color: #FFF1EA;">
             <p class="px-6 py-6"style="font-family: 'Ubuntu'; font-size: 16pt;">Categories</p>
@@ -26,6 +32,7 @@
             </ul>
         </div>
 
+        <!-- listed items -->
         <div class="col-span-3" style="grid-column-start: 3;">
             <div class="grid grid-cols-2 gap-6">
                 {% for item in items %}  <!-- for all item in item object -->

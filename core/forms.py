@@ -2,6 +2,12 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
+# Author: Jason Ngo, Maxine Ramos, Jenny Shen, Joyce Xuan
+# Class: INF 453 - Capstone Project
+# Supervisor: Maher Elshakankiri
+# Purpose: creating forms for login and signup
+
+## login form, with html styling
 class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder': 'Your Username',
@@ -15,6 +21,7 @@ class LoginForm(AuthenticationForm):
         'style': 'color: black; background-color: #EEB29280; border-color: black; border-style: solid; border-width: medium;'
     }))
 
+## signup form, with html styling
 class SignupForm(UserCreationForm):
     class Meta:
         model = User

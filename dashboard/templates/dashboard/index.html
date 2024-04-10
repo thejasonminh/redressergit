@@ -1,9 +1,15 @@
 <!-- uses the base.html as a model -->
+<!--
+Author: Jason Ngo, Maxine Ramos, Jenny Shen, Joyce Xuan
+Class: INF 453 - Capstone Project
+Supervisor: Maher Elshakankiri
+Purpose: User profile
+-->
 {% extends 'core/base.html' %}
 
-<!-- page title is welcome -->
 {% block title %}Dashboard{% endblock %}
 
+<!-- page title is welcome -->
 {% block content %}
     <div class="grid grid-cols-7 gap-2">
         <h1 class="text-center" style="font-family: 'Ubuntu'; font-size: 24pt; grid-column-start: 4; white-space: nowrap;">Welcome, {{ user.get_username }}</h1>
@@ -14,7 +20,7 @@
             </form>
         </div>
     </div>
-    <!-- gray background where 3 columns for item listings -->
+    <!-- 3 columns for item listings -->
     <div class="mt-3 px-6">
         <h2 class="mb-12 text-center" style="font-family: 'Ubuntu'; font-size: 20pt;">Your Items</h2>
 
