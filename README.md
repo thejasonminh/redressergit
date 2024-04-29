@@ -9,7 +9,7 @@ By presenting a practical response to challenges in the fashion and retail indus
 
 This project was built using `Figma`, `TeleportHQ`, and `Django`.
 
-## For Maher
+## Modified Code
 Please only look at code with the <b>Commenting</b> commit message, as those ones files have been modified. 
 
 ## The project directory is organized as follows: 
